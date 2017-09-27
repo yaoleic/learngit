@@ -1,0 +1,22 @@
+CREATE TABLE `o2o_order` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `out_trade_no` varchar(100) not null default '',
+  `transaction_id` VARCHAR (100) not null DEFAULT '',
+  `user_id` int(11) not NULL DEFAULT 0,
+  `username` VARCHAR (50) not null DEFAULT '',
+  `pay_time` VARCHAR (20) not null DEFAULT '',
+  `payment_id` tinyint(1) not null DEFAULT 1,
+  `deal_id` int(11) not NULL DEFAULT 0,
+  `deal_count` int(11) not NULL DEFAULT 0,
+  `pay_status` tinyint(1) not NULL DEFAULT 1 comment '支付状态 0：未支付 1支付成功 2支付失败',
+  `total_price` DECIMAL (20,2) not null DEFAULT '0.00',
+  `pay_amount` DECIMAL (20,2) not null DEFAULT '0.00',
+  `status` tinyint(1) NOT NULL DEFAULT 1,
+  `referer` VARCHAR (255) not null DEFAULT '',
+  `create_time` int(11) unsigned NOT NULL DEFAULT 0,
+  `update_time` int(11) unsigned NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`),
+  UNIQUE `out_trade_no`(`out_trade_no`),
+  KEY user_id(`user_id`),
+  key crete_time(`create_time`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8
